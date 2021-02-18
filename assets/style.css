@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    background-color: #313131;
+}
+
+header {
+    min-height: 60px;
+}
+
+.navbar-container {
+    height: 100px;
+}
+
+.container.fill {
+    min-height: 100vh;
+}
+
+.student-col input {
+    background: none;
+    border: none;
+    overflow: visible;
+    width: 100%;
+    text-align: center;
+    color: inherit;
+    transition: background-color, transform 0.3s;
+}
+
+.student-col input:hover {
+    transform: translateY(-2px);
+}
+
+.student-col input:focus {
+    background-color: #00000024;
+    outline: 0;
+    transform: none;
+}
+
+.delete-button,
+.accept-button,
+.deny-button,
+.add-button,
+.delete-all-button {
+    cursor: pointer;
+    font-style: normal;
+    font-weight: 600;
+    transition: color 0.3s;
+    margin: 0 5px;
+    color: white;
+}
+
+.delete-button::before {
+    content: '🛇';
+    color: #ff5858;
+}
+
+.accept-button::before {
+    content: '✓';
+    color: #56cd56;
+}
+
+.deny-button::before {
+    content: 'X';
+    color: #ff5858;
+}
+
+.add-button::before {
+    content: '+';
+    color: #56cd56;
+}
+
+.delete-all-button::before {
+    content: '×';
+    color: #ff5858;
+    transform: scale(2);
+}
+
+.add-button:hover {
+    color: #56cd56;
+}
+
+.delete-all-button:hover {
+    color: #ff5858;
+}
+
+.temp~label {
+    position: absolute;
+    left: 20px;
+    width: 100%;
+    top: 3px;
+    color: #aaa;
+    transition: 0.3s;
+    pointer-events: none;
+    letter-spacing: 0.5px;
+}
+
+.temp:focus~label,
+.temp.has-value~label {
+    top: -18px;
+    left: 20px;
+    font-size: 12px;
+    color: #333;
+    transition: 0.3s;
+}
+
+th::after {
+    content: " ^";
+    font-weight: 50;
+}

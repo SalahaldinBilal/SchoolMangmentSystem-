@@ -36,10 +36,12 @@ header {
 }
 
 .delete-button,
-.accept-button,
-.deny-button,
+.edit-button,
 .add-button,
-.delete-all-button {
+.delete-all-button,
+.save-button,
+.upload-button,
+.show-nav {
     cursor: pointer;
     font-style: normal;
     font-weight: 600;
@@ -53,14 +55,10 @@ header {
     color: #ff5858;
 }
 
-.accept-button::before {
-    content: '✓';
+.edit-button::before {
+    content: '✏️';
+    font-family: 'Segoe UI Symbol';
     color: #56cd56;
-}
-
-.deny-button::before {
-    content: 'X';
-    color: #ff5858;
 }
 
 .add-button::before {
@@ -69,9 +67,28 @@ header {
 }
 
 .delete-all-button::before {
-    content: '×';
+    content: '🗑';
+    font-family: 'Segoe UI Symbol';
     color: #ff5858;
-    transform: scale(2);
+}
+
+.save-button::before {
+    content: '📥';
+    font-family: 'Segoe UI Symbol';
+    color: blue;
+}
+
+.upload-button::before {
+    content: '📁';
+    font-family: 'Segoe UI Symbol';
+    color: yellow;
+}
+
+.show-nav::before {
+    content: '🔻';
+    font-family: 'Segoe UI Symbol';
+    color: white;
+    transition: color 0.3s;
 }
 
 .add-button:hover {
@@ -82,7 +99,19 @@ header {
     color: #ff5858;
 }
 
-.temp~label {
+.save-button:hover {
+    color: blue;
+}
+
+.upload-button:hover {
+    color: yellow;
+}
+
+.show-navbar:hover>.show-nav:before {
+    color: lightslategrey;
+}
+
+.prettyInput~label {
     position: absolute;
     left: 20px;
     width: 100%;
@@ -93,16 +122,74 @@ header {
     letter-spacing: 0.5px;
 }
 
-.temp:focus~label,
-.temp.has-value~label {
+.prettyInput:focus~label,
+.prettyInput.has-value~label {
     top: -18px;
     left: 20px;
     font-size: 12px;
-    color: #333;
+    color: white;
     transition: 0.3s;
 }
 
 th::after {
     content: " ^";
     font-weight: 50;
+}
+
+.hidden {
+    display: none;
+}
+
+p {
+    margin: 0;
+}
+
+.navbar-brand {
+    position: absolute;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.navbar-brand:hover {
+    color: lightslategrey !important;
+}
+
+@media (max-width:992px) {
+    .navbar-brand {
+        position: static;
+    }
+}
+
+.navbar-nav>ul {
+    margin: 20px;
+}
+
+.nav-hidden {
+    transform: translateY(-75px);
+}
+
+header {
+    transition: transform 0.3s;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+}
+
+.show-navbar {
+    min-height: 15px;
+    background-color: #343a40;
+    width: 100%;
+    position: fixed;
+    cursor: pointer;
+}
+
+.modal-content {
+    color: white;
+    background-color: rgba(255, 255, 255, .10);
+}
+
+.modal-body {
+    background-color: rgba(255, 255, 255, .05)
+}
+
+.modal-content>* {
+    border-color: rgba(255, 255, 255, 0.1);
 }
